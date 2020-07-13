@@ -31,9 +31,11 @@ function! suda#system(cmd, ...) abort
   if &verbose
     echomsg '[suda]' cmd
   endif
-  let result = a:0 ? system(cmd, a:1) : system(cmd)
-  if v:shell_error == 0
-    return result
+  if g:suda#try_without_password
+    let result = a:0 ? system(cmd, a:1) : system(cmd)
+    if v:shell_error == 0
+      return result
+    endif
   endif
   try
     call inputsave()
@@ -282,3 +284,4 @@ endfunction
 " Configure
 let g:suda#prefix = get(g:, 'suda#prefix', 'suda://')
 let g:suda#prompt = get(g:, 'suda#prompt', 'Password: ')
+let g:suda#try_without_password = get(g:, 'suda#try_without_password', 1)

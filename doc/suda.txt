@@ -136,6 +136,11 @@ g:suda_smart_edit
 	as possible so you shouldn't feel any slowdown when openning buffers.
 	Default: 0
 
+						*g:suda#try_without_password*
+g:suda#try_without_password
+	If set, try to use sudo without prompting for a password first.
+	Default: 1
+
 =============================================================================
 QUESTIONS					*suda-questions*
 

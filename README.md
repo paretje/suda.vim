@@ -56,6 +56,12 @@ And you can change the prompt string with `g:suda#prompt`.
 let g:suda#prompt = 'Mot de passe: '
 ```
 
+Or you can disable trying to run sudo without entering a password (e.g. when using neovim).
+
+```vim
+let g:suda#try_without_password = !has('nvim')
+```
+
 ### Smart edit
 
 When `let g:suda_smart_edit = 1` is written in your vimrc, suda automatically switch a buffer name when the target file is not readable or writable.
